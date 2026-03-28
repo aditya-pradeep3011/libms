@@ -1,16 +1,16 @@
 services:
   mysql:
     image: mysql:8.3.0
-    container_name: product-service-db
+    container_name: inventory-service-db
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: libms-product
+      MYSQL_DATABASE: libms-inventory
       MYSQL_USER: user
       MYSQL_PASSWORD: password
     ports:
       - "3306:3306"
     volumes:
-      - mysql_data:/var/lib/mysql
+      - mysql_data_inventory:/var/lib/mysql
 
 volumes:
-  mysql_data:
+  mysql_data_inventory:
