@@ -1,0 +1,27 @@
+{
+  "type": "record",
+  "name": "OrderPlacedEvent",
+  "namespace": "com.libms.order_service.event",
+  "fields": [
+    {
+      "name": "orderId",
+      "type": "string"
+    },
+    {
+      "name": "bookName",
+      "type": "string"
+    },
+    {
+      "name": "userEmail",
+      "type": "string"
+    },
+    {
+      "name": "userFirstName",
+      "type": "string"
+    },
+    {
+      "name": "userLastName",
+      "type": "string"
+    }
+  ]
+}

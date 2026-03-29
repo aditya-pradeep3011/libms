@@ -23,4 +23,9 @@ public class InventoryService {
 	{
 		return inventoryRepository.findById(bookId).map(inventoryMapper::toDto);
 	}
+	
+	public boolean isInStock(UUID bookId, int quantity) {
+		Optional<Inventory> inventoryOpt = inventoryRepository.findById(bookId);
+		return inventoryOpt.map(inventory -> inventory.getQuantity() >= quantity).orElse(false);
+	}
 }
