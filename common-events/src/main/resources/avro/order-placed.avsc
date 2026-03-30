@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "OrderPlacedEvent",
-  "namespace": "com.libms.order_service.event",
+  "namespace": "com.libms.common_events.event",
   "fields": [
     {
       "name": "orderId",

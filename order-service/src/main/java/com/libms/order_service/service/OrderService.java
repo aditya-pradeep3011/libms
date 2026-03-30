@@ -3,9 +3,9 @@ package com.libms.order_service.service;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
+import com.libms.common_events.event.OrderPlacedEvent;
 import com.libms.order_service.client.InventoryClient;
 import com.libms.order_service.dto.OrderDto;
-import com.libms.order_service.event.OrderPlacedEvent;
 import com.libms.order_service.mapper.Mapper;
 import com.libms.order_service.model.Order;
 import com.libms.order_service.repo.OrderRepository;

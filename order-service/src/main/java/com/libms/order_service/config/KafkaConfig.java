@@ -12,7 +12,7 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 
-import com.libms.order_service.event.OrderPlacedEvent;
+import com.libms.common_events.event.OrderPlacedEvent;
 
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
 

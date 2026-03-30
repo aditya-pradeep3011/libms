@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package com.libms.order_service.event;
+package com.libms.common_events.event;
 
 import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
@@ -14,10 +14,10 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 687022344350550073L;
+  private static final long serialVersionUID = -2109274988693872642L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"OrderPlacedEvent\",\"namespace\":\"com.libms.order_service.event\",\"fields\":[{\"name\":\"orderId\",\"type\":\"string\"},{\"name\":\"bookName\",\"type\":\"string\"},{\"name\":\"userEmail\",\"type\":\"string\"},{\"name\":\"userFirstName\",\"type\":\"string\"},{\"name\":\"userLastName\",\"type\":\"string\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"OrderPlacedEvent\",\"namespace\":\"com.libms.common_events.event\",\"fields\":[{\"name\":\"orderId\",\"type\":\"string\"},{\"name\":\"bookName\",\"type\":\"string\"},{\"name\":\"userEmail\",\"type\":\"string\"},{\"name\":\"userFirstName\",\"type\":\"string\"},{\"name\":\"userLastName\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -224,8 +224,8 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
    * Creates a new OrderPlacedEvent RecordBuilder.
    * @return A new OrderPlacedEvent RecordBuilder
    */
-  public static com.libms.order_service.event.OrderPlacedEvent.Builder newBuilder() {
-    return new com.libms.order_service.event.OrderPlacedEvent.Builder();
+  public static com.libms.common_events.event.OrderPlacedEvent.Builder newBuilder() {
+    return new com.libms.common_events.event.OrderPlacedEvent.Builder();
   }
 
   /**
@@ -233,11 +233,11 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
    * @param other The existing builder to copy.
    * @return A new OrderPlacedEvent RecordBuilder
    */
-  public static com.libms.order_service.event.OrderPlacedEvent.Builder newBuilder(com.libms.order_service.event.OrderPlacedEvent.Builder other) {
+  public static com.libms.common_events.event.OrderPlacedEvent.Builder newBuilder(com.libms.common_events.event.OrderPlacedEvent.Builder other) {
     if (other == null) {
-      return new com.libms.order_service.event.OrderPlacedEvent.Builder();
+      return new com.libms.common_events.event.OrderPlacedEvent.Builder();
     } else {
-      return new com.libms.order_service.event.OrderPlacedEvent.Builder(other);
+      return new com.libms.common_events.event.OrderPlacedEvent.Builder(other);
     }
   }
 
@@ -246,11 +246,11 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
    * @param other The existing instance to copy.
    * @return A new OrderPlacedEvent RecordBuilder
    */
-  public static com.libms.order_service.event.OrderPlacedEvent.Builder newBuilder(com.libms.order_service.event.OrderPlacedEvent other) {
+  public static com.libms.common_events.event.OrderPlacedEvent.Builder newBuilder(com.libms.common_events.event.OrderPlacedEvent other) {
     if (other == null) {
-      return new com.libms.order_service.event.OrderPlacedEvent.Builder();
+      return new com.libms.common_events.event.OrderPlacedEvent.Builder();
     } else {
-      return new com.libms.order_service.event.OrderPlacedEvent.Builder(other);
+      return new com.libms.common_events.event.OrderPlacedEvent.Builder(other);
     }
   }
 
@@ -276,7 +276,7 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.libms.order_service.event.OrderPlacedEvent.Builder other) {
+    private Builder(com.libms.common_events.event.OrderPlacedEvent.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.orderId)) {
         this.orderId = data().deepCopy(fields()[0].schema(), other.orderId);
@@ -304,7 +304,7 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
      * Creates a Builder by copying an existing OrderPlacedEvent instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.libms.order_service.event.OrderPlacedEvent other) {
+    private Builder(com.libms.common_events.event.OrderPlacedEvent other) {
       super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.orderId)) {
         this.orderId = data().deepCopy(fields()[0].schema(), other.orderId);
@@ -342,7 +342,7 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
       * @param value The value of 'orderId'.
       * @return This builder.
       */
-    public com.libms.order_service.event.OrderPlacedEvent.Builder setOrderId(java.lang.CharSequence value) {
+    public com.libms.common_events.event.OrderPlacedEvent.Builder setOrderId(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.orderId = value;
       fieldSetFlags()[0] = true;
@@ -362,7 +362,7 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
       * Clears the value of the 'orderId' field.
       * @return This builder.
       */
-    public com.libms.order_service.event.OrderPlacedEvent.Builder clearOrderId() {
+    public com.libms.common_events.event.OrderPlacedEvent.Builder clearOrderId() {
       orderId = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -382,7 +382,7 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
       * @param value The value of 'bookName'.
       * @return This builder.
       */
-    public com.libms.order_service.event.OrderPlacedEvent.Builder setBookName(java.lang.CharSequence value) {
+    public com.libms.common_events.event.OrderPlacedEvent.Builder setBookName(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.bookName = value;
       fieldSetFlags()[1] = true;
@@ -402,7 +402,7 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
       * Clears the value of the 'bookName' field.
       * @return This builder.
       */
-    public com.libms.order_service.event.OrderPlacedEvent.Builder clearBookName() {
+    public com.libms.common_events.event.OrderPlacedEvent.Builder clearBookName() {
       bookName = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -422,7 +422,7 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
       * @param value The value of 'userEmail'.
       * @return This builder.
       */
-    public com.libms.order_service.event.OrderPlacedEvent.Builder setUserEmail(java.lang.CharSequence value) {
+    public com.libms.common_events.event.OrderPlacedEvent.Builder setUserEmail(java.lang.CharSequence value) {
       validate(fields()[2], value);
       this.userEmail = value;
       fieldSetFlags()[2] = true;
@@ -442,7 +442,7 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
       * Clears the value of the 'userEmail' field.
       * @return This builder.
       */
-    public com.libms.order_service.event.OrderPlacedEvent.Builder clearUserEmail() {
+    public com.libms.common_events.event.OrderPlacedEvent.Builder clearUserEmail() {
       userEmail = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -462,7 +462,7 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
       * @param value The value of 'userFirstName'.
       * @return This builder.
       */
-    public com.libms.order_service.event.OrderPlacedEvent.Builder setUserFirstName(java.lang.CharSequence value) {
+    public com.libms.common_events.event.OrderPlacedEvent.Builder setUserFirstName(java.lang.CharSequence value) {
       validate(fields()[3], value);
       this.userFirstName = value;
       fieldSetFlags()[3] = true;
@@ -482,7 +482,7 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
       * Clears the value of the 'userFirstName' field.
       * @return This builder.
       */
-    public com.libms.order_service.event.OrderPlacedEvent.Builder clearUserFirstName() {
+    public com.libms.common_events.event.OrderPlacedEvent.Builder clearUserFirstName() {
       userFirstName = null;
       fieldSetFlags()[3] = false;
       return this;
@@ -502,7 +502,7 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
       * @param value The value of 'userLastName'.
       * @return This builder.
       */
-    public com.libms.order_service.event.OrderPlacedEvent.Builder setUserLastName(java.lang.CharSequence value) {
+    public com.libms.common_events.event.OrderPlacedEvent.Builder setUserLastName(java.lang.CharSequence value) {
       validate(fields()[4], value);
       this.userLastName = value;
       fieldSetFlags()[4] = true;
@@ -522,7 +522,7 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
       * Clears the value of the 'userLastName' field.
       * @return This builder.
       */
-    public com.libms.order_service.event.OrderPlacedEvent.Builder clearUserLastName() {
+    public com.libms.common_events.event.OrderPlacedEvent.Builder clearUserLastName() {
       userLastName = null;
       fieldSetFlags()[4] = false;
       return this;
