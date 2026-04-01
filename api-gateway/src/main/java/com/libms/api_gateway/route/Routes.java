@@ -29,7 +29,7 @@ public class Routes {
 		return GatewayRouterFunctions.route("product-service")
 				.route(RequestPredicates.path("/api/books"), HandlerFunctions.http())
 				.before(BeforeFilterFunctions.uri(productServiceUrl))
-//				.filter(TokenRelayFilterFunctions.tokenRelay())
+				.filter(TokenRelayFilterFunctions.tokenRelay())
 				.build();
 	}
 	
@@ -37,9 +37,9 @@ public class Routes {
 	RouterFunction<ServerResponse> inventoryServiceRoute()
 	{
 		return GatewayRouterFunctions.route("inventory-service")
-				.route(RequestPredicates.path("/api/inventory"), HandlerFunctions.http())
+				.route(RequestPredicates.path("/api/inventory/*"), HandlerFunctions.http())
 				.before(BeforeFilterFunctions.uri(inventoryServiceUrl))
-//				.filter(TokenRelayFilterFunctions.tokenRelay())
+				.filter(TokenRelayFilterFunctions.tokenRelay())
 				.build();
 	}
 	
@@ -49,7 +49,7 @@ public class Routes {
 		return GatewayRouterFunctions.route("order-service")
 				.route(RequestPredicates.path("/api/orders"), HandlerFunctions.http())
 				.before(BeforeFilterFunctions.uri(orderServiceUrl))
-//				.filter(TokenRelayFilterFunctions.tokenRelay())
+				.filter(TokenRelayFilterFunctions.tokenRelay())
 				.build();
 	}
 }
