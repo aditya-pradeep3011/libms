@@ -34,6 +34,16 @@ public class Routes {
 	}
 	
 	@Bean
+    RouterFunction<ServerResponse> productServiceSwaggerRoute() 
+	{
+        return GatewayRouterFunctions.route("product-service-swagger")
+                .route(RequestPredicates.path("/docs/product-service/v3/api-docs"), HandlerFunctions.http())
+                .before(BeforeFilterFunctions.stripPrefix(2))
+                .before(BeforeFilterFunctions.uri(productServiceUrl))
+                .build();
+    }
+	
+	@Bean
 	RouterFunction<ServerResponse> inventoryServiceRoute()
 	{
 		return GatewayRouterFunctions.route("inventory-service")
@@ -44,6 +54,16 @@ public class Routes {
 	}
 	
 	@Bean
+    RouterFunction<ServerResponse> inventoryServiceSwaggerRoute() 
+	{
+        return GatewayRouterFunctions.route("inventory-service-swagger")
+                .route(RequestPredicates.path("/docs/inventory-service/v3/api-docs"), HandlerFunctions.http())
+                .before(BeforeFilterFunctions.stripPrefix(2))
+                .before(BeforeFilterFunctions.uri(inventoryServiceUrl))
+                .build();
+    }
+	
+	@Bean
 	RouterFunction<ServerResponse> orderServiceRoute()
 	{
 		return GatewayRouterFunctions.route("order-service")
@@ -52,4 +72,14 @@ public class Routes {
 				.filter(TokenRelayFilterFunctions.tokenRelay())
 				.build();
 	}
+	
+	@Bean
+    RouterFunction<ServerResponse> orderServiceSwaggerRoute() 
+	{
+        return GatewayRouterFunctions.route("order-service-swagger")
+                .route(RequestPredicates.path("/docs/order-service/v3/api-docs"), HandlerFunctions.http())
+                .before(BeforeFilterFunctions.stripPrefix(2))
+                .before(BeforeFilterFunctions.uri(orderServiceUrl))
+                .build();
+    }
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.libms.inventory_service.dto.InventoryDto;
 import com.libms.inventory_service.service.InventoryService;
 
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -21,6 +22,7 @@ public class InventoryController {
 
 	private final InventoryService inventoryService;
 	
+	@Operation(summary = "Get stock information for a book")
 	@GetMapping("{bookId}")
 	public ResponseEntity<InventoryDto> getStockInfo(@PathVariable UUID bookId)
 	{
@@ -29,6 +31,7 @@ public class InventoryController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
+	@Operation(summary = "Check if a book is in stock for a given quantity")
 	@GetMapping("{bookId}/stock")
 	public boolean isInStock(@PathVariable UUID bookId, @RequestParam int quantity) {
 		return inventoryService.isInStock(bookId, quantity);

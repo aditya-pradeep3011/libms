@@ -13,11 +13,18 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 public class SecurityConfig {
+	
+	private final String[] freeResourceUrls = {"/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**",
+            "/swagger-resources/**", "/api-docs/**", "/docs/**"};
 
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception
 	{
-		return http.authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
+		return http.authorizeHttpRequests(auth -> auth
+				.requestMatchers(freeResourceUrls)
+				.permitAll()
+				.anyRequest()
+				.authenticated())
 				.cors(cors -> cors.configurationSource(getCorsConfigurationSource()))
 				.oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()))
 				.build();

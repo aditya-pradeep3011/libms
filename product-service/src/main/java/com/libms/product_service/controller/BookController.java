@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.libms.product_service.dto.BookDto;
 import com.libms.product_service.service.BookService;
 
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -27,11 +28,13 @@ public class BookController {
 
 	private final BookService bookService;
 	
+	@Operation(summary = "Get all books")
 	@GetMapping
 	public ResponseEntity<List<BookDto>> getAllBooks() {
 		return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.OK);
 	}
 	
+	@Operation(summary = "Get book by ID")
 	@GetMapping("/{id}")
 	public ResponseEntity<BookDto> getBookById(@PathVariable UUID id) {
 		Optional<BookDto> bookOpt = bookService.getBookById(id);
@@ -39,12 +42,14 @@ public class BookController {
 				.orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	
+	@Operation(summary = "Create a new book")
 	@PostMapping
 	public ResponseEntity<BookDto> createBook(@RequestBody BookDto bookDto) {
 		BookDto createdBook = bookService.createBook(bookDto);
 		return new ResponseEntity<>(createdBook, HttpStatus.CREATED);
 	}
 	
+	@Operation(summary = "Update an existing book")
 	@PutMapping("/{id}")
 	public ResponseEntity<BookDto> updateBook(@PathVariable UUID id, @RequestBody BookDto bookDto) {
 		Optional<BookDto> updatedBookOpt = bookService.updateBook(id, bookDto);
@@ -52,6 +57,7 @@ public class BookController {
 				.orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	
+	@Operation(summary = "Delete a book")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> deleteBook(@PathVariable UUID id) {
 		bookService.deleteBook(id);
