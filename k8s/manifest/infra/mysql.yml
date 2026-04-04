@@ -26,6 +26,16 @@ spec:
                 secretKeyRef:
                   key: mysql_root_password
                   name: mysql-secrets
+            - name: MYSQL_USER
+              valueFrom:
+                configMapKeyRef:
+                  key: MYSQL_USER
+                  name: mysql-config
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: mysql_user_password
+                  name: mysql-secrets
           volumeMounts:
             - mountPath: /var/lib/mysql
               name: mysql-data
@@ -57,6 +67,7 @@ spec:
 apiVersion: v1
 data:
   mysql_root_password: cGFzc3dvcmQ=
+  mysql_user_password: cGFzc3dvcmQ=
 kind: Secret
 metadata:
   name: mysql-secrets
@@ -99,3 +110,19 @@ data:
     CREATE DATABASE IF NOT EXISTS libms_inventory;
     CREATE DATABASE IF NOT EXISTS libms_order;
     CREATE DATABASE IF NOT EXISTS libms_product;
+    
+    CREATE USER IF NOT EXISTS 'user'@'%' IDENTIFIED BY 'password';
+
+    GRANT ALL PRIVILEGES ON libms_inventory.* TO 'user'@'%';
+    GRANT ALL PRIVILEGES ON libms_order.* TO 'user'@'%';
+    GRANT ALL PRIVILEGES ON libms_product.* TO 'user'@'%';
+
+    FLUSH PRIVILEGES;
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: mysql-config
+    namespace: libms
+data:
+    MYSQL_USER: user
