@@ -16,6 +16,8 @@ spec:
       containers:
         - name: notification-service
           image: adityapradeep3011/libms-notification-service:latest
+          ports:
+            - containerPort: 9004
           env:
             - name: SPRING_KAFKA_BOOTSTRAP-SERVERS
               valueFrom:

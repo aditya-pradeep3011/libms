@@ -16,6 +16,8 @@ spec:
       containers:
         - name: inventory-service
           image: adityapradeep3011/libms-inventory-service:latest
+          ports:
+            - containerPort: 9002
           env:
             - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI
               valueFrom:

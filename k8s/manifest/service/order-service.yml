@@ -16,6 +16,8 @@ spec:
       containers:
         - name: order-service
           image: adityapradeep3011/libms-order-service:latest
+          ports:
+            - containerPort: 9003
           env:
             - name: SPRING_KAFKA_BOOTSTRAP-SERVERS
               valueFrom:
@@ -27,7 +29,7 @@ spec:
                 configMapKeyRef:
                   key: SPRING_DATASOURCE_URL
                   name: order-service-config
-            - name: INVENTORY_SERVICE_URL
+            - name: INVENTORY_SERVICE_BASE_URL
               valueFrom:
                 configMapKeyRef:
                   key: INVENTORY_SERVICE_URL

@@ -16,6 +16,8 @@ spec:
       containers:
         - name: product-service
           image: adityapradeep3011/libms-product-service:latest
+          ports:
+            - containerPort: 9000
           env:
             - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI
               valueFrom:
